@@ -7,18 +7,18 @@ export function Home() {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
   
-   const navigate = useNavigate();
+  //  const navigate = useNavigate();
 
-    const token = localStorage.getItem("token");
+  //   const token = localStorage.getItem("token");
   
-    useEffect(() => {
-      if (!token) {
-        // alert("You need to log in to view the community.");
-        // window.location.href = "/login";
-        navigate('/login')
-        return;
-      }
-    }, [token]);
+  //   useEffect(() => {
+  //     if (!token) {
+  //       // alert("You need to log in to view the community.");
+  //       // window.location.href = "/login";
+  //       navigate('/login')
+  //       return;
+  //     }
+  //   }, [token]);
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
