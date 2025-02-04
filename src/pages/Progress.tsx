@@ -1,22 +1,22 @@
 import React, { useEffect } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { Calendar, TrendingUp, Scale, Activity } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 export default function Progress() {
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const token = localStorage.getItem("token");
+  // const token = localStorage.getItem("token");
 
-  useEffect(() => {
-    if (!token) {
-      // alert("You need to log in to view the community.");
-      // window.location.href = "/login";
-      navigate('/login')
-      return;
-    }
-  }, [token]);
+  // useEffect(() => {
+  //   if (!token) {
+  //     // alert("You need to log in to view the community.");
+  //     // window.location.href = "/login";
+  //     navigate('/login')
+  //     return;
+  //   }
+  // }, [token]);
   const data = [
     { date: '2024-01-01', weight: 93, workouts: 2, calories: 2000 },
     { date: '2024-01-02', weight: 74.8, workouts: 1, calories: 1800 },

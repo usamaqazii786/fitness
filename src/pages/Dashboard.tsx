@@ -4,18 +4,18 @@ import { Link, useNavigate } from 'react-router-dom';
 
 export default function Dashboard() {
 
-     const navigate = useNavigate();
+    //  const navigate = useNavigate();
   
-      const token = localStorage.getItem("token");
+    //   const token = localStorage.getItem("token");
     
-      useEffect(() => {
-        if (!token) {
-          // alert("You need to log in to view the community.");
-          // window.location.href = "/login";
-          navigate('/login')
-          return;
-        }
-      }, [token]);
+    //   useEffect(() => {
+    //     if (!token) {
+    //       // alert("You need to log in to view the community.");
+    //       // window.location.href = "/login";
+    //       navigate('/login')
+    //       return;
+    //     }
+    //   }, [token]);
   const stats = [
     { label: 'Workouts This Week', value: '5', change: '+2', changeType: 'increase' },
     { label: 'Active Minutes', value: '320', change: '+25', changeType: 'increase' },

@@ -28,21 +28,21 @@ export function Nutrition() {
   const [isEditing, setIsEditing] = useState(false);  // For edit mode
   const [currentMealId, setCurrentMealId] = useState<string | null>(null);  // Track meal ID being edited
 
-     const navigate = useNavigate();
+    //  const navigate = useNavigate();
   
-      const token = localStorage.getItem("token");
+    //   const token = localStorage.getItem("token");
     
    
 
-  useEffect(() => {
-    if (!token) {
-      // alert("You need to log in to view the community.");
-      // window.location.href = "/login";
-      navigate('/login')
-      return;
-    }
-    fetchMeals();
-  }, [token]);
+  // useEffect(() => {
+  //   if (!token) {
+  //     // alert("You need to log in to view the community.");
+  //     // window.location.href = "/login";
+  //     navigate('/login')
+  //     return;
+  //   }
+  //   fetchMeals();
+  // }, [token]);
 
   const fetchMeals = async () => {
     setLoading(true);

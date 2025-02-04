@@ -6,16 +6,16 @@ export function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
   const navigate = useNavigate();
 
-  const token = localStorage.getItem("token");
+  // const token = localStorage.getItem("token");
 
-  useEffect(() => {
-    if (!token) {
-      // alert("You need to log in to view the community.");
-      // window.location.href = "/login";
-      navigate('/login')
-      return;
-    }
-  }, [token]);
+  // useEffect(() => {
+  //   if (!token) {
+  //     // alert("You need to log in to view the community.");
+  //     // window.location.href = "/login";
+  //     navigate('/login')
+  //     return;
+  //   }
+  // }, [token]);
   const handleLogOut = () => {
     localStorage.removeItem('token');
     navigate('/login');
