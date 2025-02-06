@@ -35,13 +35,13 @@ export function Footer() {
           <div>
             <h3 className="mb-4 text-lg font-semibold">Connect With Us</h3>
             <div className="flex space-x-4">
-              <Link to="#" className="text-gray-400 hover:text-white">
+              <Link to="https://www.facebook.com/usama.qazi.946/?locale=pt_PT" target='_blank' className="text-gray-400 hover:text-white">
                 <Facebook className="w-6 h-6" />
               </Link>
               <Link to="#" className="text-gray-400 hover:text-white">
                 <Twitter className="w-6 h-6" />
               </Link>
-              <Link to="#" className="text-gray-400 hover:text-white">
+              <Link to="https://www.instagram.com/uq5794472/?igsh=OGN6cjc4ZjZ1bmYz" target='_blank' className="text-gray-400 hover:text-white">
                 <Instagram className="w-6 h-6" />
               </Link>
               <Link to="#" className="text-gray-400 hover:text-white">

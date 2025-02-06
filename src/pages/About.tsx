@@ -5,24 +5,24 @@ export function About() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="bg-indigo-600 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold mb-4">About Fitness Tracker</h1>
+      <div className="py-16 text-white bg-indigo-600">
+        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <h1 className="mb-4 text-4xl font-bold">About Fitness Tracker</h1>
           <p className="text-xl">Empowering individuals to achieve their fitness goals since 2024</p>
         </div>
       </div>
 
       {/* Mission Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div className="px-4 py-16 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
           <div>
-            <h2 className="text-3xl font-bold mb-6">Our Mission</h2>
-            <p className="text-gray-600 text-lg mb-6">
+            <h2 className="mb-6 text-3xl font-bold">Our Mission</h2>
+            <p className="mb-6 text-lg text-gray-600">
               At Fitness Tracker, we believe that everyone deserves access to the tools and knowledge needed to live a healthy, 
               active lifestyle. Our mission is to make fitness accessible, enjoyable, and sustainable for people of all 
               fitness levels.
             </p>
-            <p className="text-gray-600 text-lg">
+            <p className="text-lg text-gray-600">
               We're committed to providing a supportive community, expert guidance, and innovative tools to help you 
               achieve your fitness goals and maintain a healthy lifestyle for years to come.
             </p>
@@ -38,10 +38,10 @@ export function About() {
       </div>
 
       {/* Team Section */}
-      <div className="bg-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold mb-12 text-center">Our Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="py-16 bg-white">
+        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <h2 className="mb-12 text-3xl font-bold text-center">Our Team</h2>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {[
               {
                 name: "Sarah Johnson",
@@ -63,7 +63,7 @@ export function About() {
                 <img 
                   src={member.image} 
                   alt={member.name}
-                  className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+                  className="object-cover w-32 h-32 mx-auto mb-4 rounded-full"
                 />
                 <h3 className="text-xl font-semibold">{member.name}</h3>
                 <p className="text-gray-600">{member.role}</p>
@@ -74,23 +74,23 @@ export function About() {
       </div>
 
       {/* Contact Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h2 className="text-3xl font-bold mb-12 text-center">Contact Us</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="px-4 py-16 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <h2 className="mb-12 text-3xl font-bold text-center">Contact Us</h2>
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           <div className="text-center">
-            <Mail className="h-8 w-8 mx-auto mb-4 text-indigo-600" />
-            <h3 className="text-xl font-semibold mb-2">Email</h3>
-            <p className="text-gray-600">support@Fitness Tracker.com</p>
+            <Mail className="w-8 h-8 mx-auto mb-4 text-indigo-600" />
+            <h3 className="mb-2 text-xl font-semibold">Email</h3>
+            <p className="text-gray-600">usamaqazi1234567@gmail.com</p>
           </div>
           <div className="text-center">
-            <Phone className="h-8 w-8 mx-auto mb-4 text-indigo-600" />
-            <h3 className="text-xl font-semibold mb-2">Phone</h3>
-            <p className="text-gray-600">+1 (555) 123-4567</p>
+            <Phone className="w-8 h-8 mx-auto mb-4 text-indigo-600" />
+            <h3 className="mb-2 text-xl font-semibold">Phone</h3>
+            <p className="text-gray-600">+92 (315) 379-9709</p>
           </div>
           <div className="text-center">
-            <MapPin className="h-8 w-8 mx-auto mb-4 text-indigo-600" />
-            <h3 className="text-xl font-semibold mb-2">Location</h3>
-            <p className="text-gray-600">123 Fitness Street<br />Health City, FL 12345</p>
+            <MapPin className="w-8 h-8 mx-auto mb-4 text-indigo-600" />
+            <h3 className="mb-2 text-xl font-semibold">Location</h3>
+            <p className="text-gray-600">House no 187 alfareed street <br />garden west Karachi</p>
           </div>
         </div>
       </div>
