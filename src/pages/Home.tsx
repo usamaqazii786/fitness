@@ -119,6 +119,7 @@ export function Home() {
                     src={testimonial.image}
                     alt={testimonial.name}
                     className="w-12 h-12 mr-4 rounded-full"
+                    width={12} height={12}
                   />
                   <div>
                     <h3 className="font-semibold">{testimonial.name}</h3>
