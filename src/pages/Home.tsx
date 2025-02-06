@@ -50,7 +50,7 @@ export function Home() {
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <div
-        className="relative bg-cover bg-center h-[600px]"
+        className="relative bg-cover bg-center h-[600px] transition-opacity duration-500"
         style={{
           backgroundImage:
             `url(${BanerImage})`,
