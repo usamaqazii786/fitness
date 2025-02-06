@@ -48,7 +48,7 @@ export function Navbar() {
           </div>
 
           <div className="lg:hidden">
-            <button
+            <button type='button'
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 text-white rounded-md hover:bg-indigo-500"
             >
