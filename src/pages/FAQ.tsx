@@ -1,5 +1,6 @@
 import React from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export function FAQ() {
   const [openIndex, setOpenIndex] = React.useState<number | null>(null);
@@ -32,10 +33,10 @@ export function FAQ() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 py-16">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-bold text-center mb-4">Frequently Asked Questions</h1>
-        <p className="text-gray-600 text-center mb-12">Find answers to common questions about Fitness Tracker</p>
+    <div className="min-h-screen py-16 bg-gray-50">
+      <div className="max-w-3xl px-4 mx-auto sm:px-6 lg:px-8">
+        <h1 className="mb-4 text-4xl font-bold text-center">Frequently Asked Questions</h1>
+        <p className="mb-12 text-center text-gray-600">Find answers to common questions about Fitness Tracker</p>
 
         <div className="space-y-4">
           {faqs.map((faq, index) => (
@@ -44,14 +45,14 @@ export function FAQ() {
               className="bg-white rounded-lg shadow-sm"
             >
               <button
-                className="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none"
+                className="flex items-center justify-between w-full px-6 py-4 text-left focus:outline-none"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
               >
                 <span className="text-lg font-semibold">{faq.question}</span>
                 {openIndex === index ? (
-                  <ChevronUp className="h-5 w-5 text-gray-500" />
+                  <ChevronUp className="w-5 h-5 text-gray-500" />
                 ) : (
-                  <ChevronDown className="h-5 w-5 text-gray-500" />
+                  <ChevronDown className="w-5 h-5 text-gray-500" />
                 )}
               </button>
               {openIndex === index && (
@@ -65,12 +66,12 @@ export function FAQ() {
 
         <div className="mt-12 text-center">
           <p className="text-gray-600">Still have questions?</p>
-          <a 
-            href="mailto:support@Fitness Tracker.com"
-            className="text-indigo-600 font-semibold hover:text-indigo-700"
+          <Link
+            to="mailto:support@Fitness Tracker.com"
+            className="font-semibold text-indigo-600 hover:text-indigo-700"
           >
             Contact our support team
-          </a>
+          </Link>
         </div>
       </div>
     </div>

@@ -35,23 +35,26 @@ export function Community() {
 
     const fetchUserData = async () => {
       try {
+        const newPost = {
+          author: {
+            name: user?.name,
+            image:
+              user?.image,
+          },
+        };
         const userResponse = await axios.get("http://localhost:5001/user", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUser(userResponse.data);
 
-        const [postsResponse, challengesResponse, postsCommentResponse] = await Promise.all([
-          axios.get("http://localhost:5001/posts", {
+        const [postsResponse, challengesResponse] = await Promise.all([
+          axios.get("http://localhost:5001/posts", newPost, {
             headers: { Authorization: `Bearer ${token}` },
           }),
           axios.get("http://localhost:5001/challenges", {
             headers: { Authorization: `Bearer ${token}` },
           }),
-           await axios.get("http://localhost:5001/posts", {
-            headers: { Authorization: `Bearer ${token}` },
-          }),
         ]);
-            setPosts(postsCommentResponse.data);
 
         setPosts(postsResponse.data);
         setChallenges(challengesResponse.data);
@@ -82,10 +85,9 @@ export function Community() {
     try {
       const newPost = {
         author: {
-          name: user?.name || "salman",
+          name: user?.name || "usama",
           image:
-            user?.image ||
-            "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+            user?.image || "../asset/img/exercises.jpg",
         },
         content: newPostContent,
       };
@@ -205,22 +207,6 @@ export function Community() {
       alert("Failed to delete comment. Try again.");
     }
   };
-  
-
-  // const deleteComment = async (postId: string, commentId: string) => {
-  //   try {
-  //     if (!postId) {
-  //       console.error("Meal ID is missing");
-  //       return;
-  //     }
-  //     const response = axios.delete(`/posts/${postId}/comments/${commentId}`)
-  //     console.log("Meal deleted successfully", response.data);
-  //   } catch (error) {
-  //     console.error("Error deleting meal:", error);
-  //   }
-  // };
-
- 
 
   const handleLike = async (postId) => {
     try {
@@ -250,9 +236,13 @@ export function Community() {
     }
   
     try {
+      const newChallenge = {
+        title : "Anonymous",
+        participants : 2,
+        daysLeft : 3,
+      };
       const response = await axios.post(
-        `http://localhost:5001/challenges/${challengeId}/join`,
-        {},
+        `http://localhost:5001/challenges/${challengeId}/join`, newChallenge,
         { headers: { Authorization: `Bearer ${token}` } }
       );
   
@@ -270,8 +260,6 @@ export function Community() {
       alert("Failed to join challenge. Try again.");
     }
   };
-  
-  
 
   if (loading) {
     return (
