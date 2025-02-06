@@ -57,7 +57,7 @@ export function Home() {
           <div className="max-w-xl text-white">
             <h1 className="mb-4 text-4xl font-bold md:text-6xl">Transform Your Life with Fitness Tracker</h1>
             <p className="mb-8 text-xl md:text-2xl">Your journey to a healthier lifestyle starts here</p>
-            <div className="flex space-x-4">
+            <div className="grid grid-cols-1 gap-8 space-x-4 lg:flex">
               <Link 
                 to="/community" 
                 className="inline-flex items-center px-6 py-3 text-lg font-semibold text-white transition-colors bg-indigo-600 rounded-lg hover:bg-indigo-700"
@@ -143,7 +143,7 @@ export function Home() {
             </div>
           ) : (
             <form onSubmit={handleSubscribe} className="max-w-md mx-auto">
-              <div className="flex gap-4">
+              <div className="grid grid-cols-1 gap-4 lg:flex">
                 <input
                   type="email"
                   value={email}

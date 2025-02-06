@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Dumbbell, Menu } from 'lucide-react';
 
@@ -32,8 +32,8 @@ export function Navbar() {
             </Link>
           </div>
           
-          <div className="hidden md:block">
-            <div className="flex items-baseline ml-10 space-x-4">
+          <div className="hidden lg:block">
+            <div className="flex items-baseline ml-10 space-x-1">
               <Link to="/" className="px-3 py-2 text-white rounded-md hover:bg-indigo-500">Home</Link>
               <Link to="/dashboard" className="px-3 py-2 text-white rounded-md hover:bg-indigo-500">Dashboard</Link>
               <Link to="/nutrition" className="px-3 py-2 text-white rounded-md hover:bg-indigo-500">Nutrition</Link>
@@ -47,7 +47,7 @@ export function Navbar() {
             </div>
           </div>
 
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 text-white rounded-md hover:bg-indigo-500"
