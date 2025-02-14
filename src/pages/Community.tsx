@@ -42,16 +42,16 @@ export function Community() {
               user?.image,
           },
         };
-        const userResponse = await axios.get("http://localhost:5001/user", {
+        const userResponse = await axios.get("http://localhost:5001/api/posts/user", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUser(userResponse.data);
 
         const [postsResponse, challengesResponse] = await Promise.all([
-          axios.get("http://localhost:5001/posts", newPost, {
+          axios.get("http://localhost:5001/api/posts", newPost, {
             headers: { Authorization: `Bearer ${token}` },
           }),
-          axios.get("http://localhost:5001/challenges", {
+          axios.get("http://localhost:5001/api/challenges", {
             headers: { Authorization: `Bearer ${token}` },
           }),
         ]);
@@ -93,7 +93,7 @@ export function Community() {
       };
 
       const response = await axios.post(
-        "http://localhost:5001/posts",
+        "http://localhost:5001/api/posts",
         newPost,
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -111,10 +111,10 @@ export function Community() {
   const deletePost = async (postId: string) => {
     try {
       if (!postId) {
-        console.error("Meal ID is missing");
+        console.error("Post ID is missing");
         return;
       }
-      const response = await axios.delete(`http://localhost:5001/posts/${postId}`);
+      const response = await axios.delete(`http://localhost:5001/api/posts/${postId}`);
       console.log("Meal deleted successfully", response.data);
     } catch (error) {
       console.error("Error deleting meal:", error);
@@ -124,7 +124,7 @@ export function Community() {
   const handleShare = async (postId) => {
     try {
       const response = await axios.post(
-        `http://localhost:5001/posts/${postId}/share`,
+        `http://localhost:5001/api/posts/${postId}/share`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -157,7 +157,7 @@ export function Community() {
 
     try {
       const response = await axios.post(
-        `http://localhost:5001/posts/${postId}/comment`,
+        `http://localhost:5001/api/posts/${postId}/comment`,
         newComment,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -189,7 +189,7 @@ export function Community() {
   
     try {
       const response = await axios.delete(
-        `http://localhost:5001/posts/${postId}/comments/${commentId}`,
+        `http://localhost:5001/api/posts/${postId}/comments/${commentId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       console.log("Comment deleted successfully", response.data);
@@ -211,7 +211,7 @@ export function Community() {
   const handleLike = async (postId) => {
     try {
       const response = await axios.post(
-        `http://localhost:5001/posts/${postId}/like`,
+        `http://localhost:5001/api/posts/${postId}/like`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -242,7 +242,7 @@ export function Community() {
         daysLeft : 3,
       };
       const response = await axios.post(
-        `http://localhost:5001/challenges/${challengeId}/join`, newChallenge,
+        `http://localhost:5001/api/challenges/${challengeId}/join`, newChallenge,
         { headers: { Authorization: `Bearer ${token}` } }
       );
   
@@ -360,11 +360,6 @@ export function Community() {
                       <MessageSquare className="w-5 h-5" />
                       <span>{post?.comments?.length}</span>
                     </button>
-                    {/* {(post?.comments || []).map((comment, index) => (
-  <div key={index} className="ml-4 text-gray-600">
-    <strong>{comment.user?.name || "Unknown"}:</strong> {comment.text}
-  </div>
-))} */}
 
                     <input
                       type="text"
@@ -394,9 +389,9 @@ export function Community() {
         </button>
                   </div>
                   {Array.isArray(post.comments) &&  post.comments.length > 0 ? (
-  post.comments.map((comment, index) => (
+  post.comments.map((comment) => (
     <div className="grid grid-cols-1 gap-8 shadow lg:grid-cols-3">
-    <div key={index} className="p-2 mt-2 ml-4 text-gray-600 ">
+    <div key={comment._id} className="p-2 mt-2 ml-4 text-gray-600 ">
       <strong>{comment.user || "Unknown"}</strong>:{" "}
       {typeof comment.comment === "string" ? comment.comment : "Invalid comment"}
     </div>
@@ -423,38 +418,9 @@ export function Community() {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Active Challenges */}
-            {/* <div className="p-6 bg-white rounded-lg shadow-sm">
-              <div className="flex items-center mb-6 space-x-2">
-                <Trophy className="w-6 h-6 text-indigo-600" />
-                <h2 className="text-xl font-semibold">Active Challenges</h2>
-              </div>
-              <div className="space-y-4">
-                {challenges.map((challenge, index) => (
-                  <div
-                    key={index}
-                    className="pb-4 border-b last:border-0 last:pb-0"
-                  >
-                    <h3 className="mb-2 font-semibold">{challenge.title}</h3>
-                    <div className="flex justify-between text-sm text-gray-500">
-                      <span className="flex items-center">
-                        <Users className="w-4 h-4 mr-1" />
-                        {challenge.participants} participants
-                      </span>
-                      <span className="flex items-center">
-                        <Calendar className="w-4 h-4 mr-1" />
-                        {challenge.daysLeft} days left
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <button onClick={() => handleJoinChallenge(challenges._id)} className="w-full px-4 py-2 mt-4 text-white transition-colors bg-indigo-600 rounded-lg hover:bg-indigo-700">
-                Join a Challenge
-              </button>
-            </div> */}
 
-{challenges.map((challenge, index) => (
-  <div key={index} className="pb-4 border-b last:border-0 last:pb-0">
+{challenges.map((challenge) => (
+  <div key={challenge._id} className="pb-4 border-b last:border-0 last:pb-0">
     <h3 className="mb-2 font-semibold">{challenge.title}</h3>
     <div className="flex justify-between text-sm text-gray-500">
       <span className="flex items-center">
